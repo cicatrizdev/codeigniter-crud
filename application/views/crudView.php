@@ -37,16 +37,18 @@
                 </tr>
             </thead>
             <tbody>
+                <?php foreach($result as $row) {?>
                 <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <th scope="row"><?php echo $row->id; ?></th>
+                    <td><?php echo $row->name; ?></td>
+                    <td><?php echo $row->crm; ?></td>
+                    <td><?php echo $row->phone; ?></td>
+                    <td><?php echo $row->state; ?></td>
+                    <td><?php echo $row->city; ?></td>
+                    <td><?php echo $row->specialization; ?></td>
 
                 </tr>
+                <?php }?>
             </tbody>
         </table>
 
@@ -105,14 +107,15 @@
                                 <option>CIRURGIA TORÁCICA</option>
                                 <option>CIRURGIA VASCULAR</option>
                                 <option>CLINICA MEDICA</option>
+                                
+                                <!-- <?php foreach($result2 as $option) {?>
+                                <option><?php echo $option->name; ?></option>
+                                <?php }?> -->
+
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary" value="save">Cadastrar</button>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
                 </div>
             </div>

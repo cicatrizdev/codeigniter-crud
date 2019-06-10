@@ -20,4 +20,17 @@ class Crud_model extends CI_Model {
 
         $this->db->insert('medico', $data);
     }
+
+    public function getAllData() 
+    {
+        $query = $this->db->query('SELECT * FROM medico');
+        return $query->result();
+    }
+
+    public function getAllSpecialization() 
+    {
+        $query2 = $this->db->query('SELECT * FROM especializacao');
+        $result2 = $query2->result();
+        return $result2;
+    }
 }

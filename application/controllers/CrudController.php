@@ -11,7 +11,9 @@ class CrudController extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('crudView');
+        $data['result'] = $this->Crud_model->getAllData();
+        $data2['result2'] = $this->Crud_model->getAllSpecialization();
+		$this->load->view('crudView', $data, $data2);
     }
     
     public function create() 
