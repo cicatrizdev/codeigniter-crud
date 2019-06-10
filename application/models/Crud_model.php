@@ -7,7 +7,7 @@ class Crud_model extends CI_Model {
         $this->load->database();
     }
 
-    public function createData() 
+    function createData() 
     {
         $data = array (
             'name' => $this->input->post('name'),
@@ -21,16 +21,43 @@ class Crud_model extends CI_Model {
         $this->db->insert('medico', $data);
     }
 
-    public function getAllData() 
+    function getAllData() 
     {
         $query = $this->db->query('SELECT * FROM medico');
         return $query->result();
     }
 
-    public function getAllSpecialization() 
+    // function getAllSpecialization() 
+    // {
+    //     $query = $this->db->query('SELECT * FROM especializacao');
+        
+    //     return $query->row();
+    // }
+
+    function getData($id)
     {
-        $query2 = $this->db->query('SELECT * FROM especializacao');
-        $result2 = $query2->result();
-        return $result2;
+        $query = $this->db->query('SELECT * FROM medico WHERE `id` = ' .$id);
+        return $query->row();
+    }
+
+    function updateData($id)
+    {
+        $data = array (
+            'name' => $this->input->post('name'),
+            'crm' => $this->input->post('crm'),
+            'phone' => $this->input->post('phone'),
+            'state' => $this->input->post('state'),
+            'city' => $this->input->post('city'),
+            'specialization' => $this->input->post('specialization'),
+        );
+
+        $this->db->where('id', $id);
+        $this->db->update('medico', $data);
+    }
+
+    function deleteData($id) 
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('medico');
     }
 }

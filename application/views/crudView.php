@@ -46,7 +46,7 @@
                     <td><?php echo $row->state; ?></td>
                     <td><?php echo $row->city; ?></td>
                     <td><?php echo $row->specialization; ?></td>
-
+                    <td><a href="<?php echo site_url('CrudController/edit');?>/<?php echo $row->id; ?>">Editar</a> | <a href="<?php echo site_url('CrudController/delete');?>/<?php echo $row->id; ?>">Deletar</a></td>
                 </tr>
                 <?php }?>
             </tbody>
@@ -107,7 +107,7 @@
                                 <option>CIRURGIA TORÁCICA</option>
                                 <option>CIRURGIA VASCULAR</option>
                                 <option>CLINICA MEDICA</option>
-                                
+
                                 <!-- <?php foreach($result2 as $option) {?>
                                 <option><?php echo $option->name; ?></option>
                                 <?php }?> -->

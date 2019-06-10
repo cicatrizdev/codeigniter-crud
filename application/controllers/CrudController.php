@@ -12,13 +12,32 @@ class CrudController extends CI_Controller {
 	public function index()
 	{
         $data['result'] = $this->Crud_model->getAllData();
-        $data2['result2'] = $this->Crud_model->getAllSpecialization();
-		$this->load->view('crudView', $data, $data2);
+        // $data2['options'] = $this->Crud_model->getAllSpecialization();
+        $this->load->view('crudView', $data);
+        // $this->load->view('crudView', $data2);
     }
     
     public function create() 
     {
         $this->Crud_model->createData();
+        redirect('CrudController');
+    }
+
+    public function edit($id)
+    {
+        $data['row'] = $this->Crud_model->getData($id);
+        $this->load->view('crudEdit', $data);
+    }
+
+    public function update($id) 
+    {
+        $this->Crud_model->updateData($id);
+        redirect('CrudController');
+    }
+
+    public function delete($id)
+    {
+        $this->Crud_model->deleteData($id);
         redirect('CrudController');
     }
 }
